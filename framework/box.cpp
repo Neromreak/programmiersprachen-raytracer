@@ -6,7 +6,7 @@
 // Constructors
 Box::Box()
 {}
-Box::Box(glm::vec3 v3_min, glm::vec3 v3_max):
+Box::Box(glm::vec3 const& v3_min, glm::vec3 const& v3_max):
   v3_min_{v3_min},
   v3_max_{v3_max}
 {}

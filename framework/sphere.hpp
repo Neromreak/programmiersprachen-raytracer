@@ -9,8 +9,8 @@ class Sphere : public Shape
 public:
   // Constructors:
   Sphere();
-  Sphere(glm::vec3 center);
-  Sphere(glm::vec3 center, float radius);
+  Sphere(glm::vec3 const& center );
+  Sphere(glm::vec3 const& center, float radius);
 
   // Methods:
   float area() const override;

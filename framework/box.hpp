@@ -9,7 +9,7 @@ class Box : public Shape
 public:
   // Constructors:
   Box();
-  Box(glm::vec3 v3_min, glm::vec3 v3_max);
+  Box(glm::vec3 const& v3_min, glm::vec3 const& v3_max);
 
   // Methods
   

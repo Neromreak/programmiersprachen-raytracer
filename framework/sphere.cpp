@@ -8,10 +8,10 @@
 Sphere::Sphere()
 {}
 
-Sphere::Sphere(glm::vec3 center):
+Sphere::Sphere(glm::vec3 const& center):
   center_{center}
 {}
-Sphere::Sphere(glm::vec3 center, float radius):
+Sphere::Sphere(glm::vec3 const& center, float radius):
   center_{center},
   radius_{std::abs(radius)}
 {}
