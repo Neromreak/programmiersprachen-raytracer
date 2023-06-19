@@ -4,13 +4,12 @@
 #include <cmath>
 
 // Constructors
-Sphere::Sphere() :
-  center_{},
-  radius_{}
+
+Sphere::Sphere()
 {}
+
 Sphere::Sphere(glm::vec3 center):
-  center_{center},
-  radius_{}
+  center_{center}
 {}
 Sphere::Sphere(glm::vec3 center, float radius):
   center_{center},
@@ -29,3 +28,7 @@ float Sphere::volume() const
 {
   return std::powf(radius_, 3) * std::numbers::pi * 4.0f / 3.0f;
 }
+
+
+// Sources:
+// https://studyflix.de/mathematik/volumen-kugel-2606?timestamp=0

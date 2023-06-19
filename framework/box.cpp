@@ -4,9 +4,7 @@
 #include <cmath>
 
 // Constructors
-Box::Box():
-  v3_min_{},
-  v3_max_{}
+Box::Box()
 {}
 Box::Box(glm::vec3 v3_min, glm::vec3 v3_max):
   v3_min_{v3_min},
