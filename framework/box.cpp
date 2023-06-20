@@ -1,14 +1,25 @@
 #include "box.hpp"
-#include <glm/vec3.hpp>
+#include "color.hpp"
 #include <numbers>
 #include <cmath>
+#include "glm/vec3.hpp"
+#include <string>
+#include "shape.hpp"
 
 // Constructors
 Box::Box()
 {}
+Box::Box(std::string const& name, Color const& color):
+  Shape::Shape{name , color}
+{}
 Box::Box(glm::vec3 const& v3_min, glm::vec3 const& v3_max):
   v3_min_{v3_min},
   v3_max_{v3_max}
+{}
+Box::Box(glm::vec3 const& v3_min, glm::vec3 const& v3_max, std::string const& name, Color const& color):
+  Shape::Shape{name, color},
+  v3_min_{ v3_min },
+  v3_max_{ v3_max }
 {}
 
 

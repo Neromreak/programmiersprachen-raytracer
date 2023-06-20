@@ -1,15 +1,17 @@
-#include <glm/vec3.hpp>
 #include "shape.hpp"
+#include "glm/vec3.hpp"
 
-#ifndef  BOX_HPP
-#define  BOX_HPP
+#ifndef BOX_HPP
+#define BOX_HPP
 
 class Box : public Shape
 {
 public:
   // Constructors:
   Box();
+  Box(std::string const& name, Color const& color);
   Box(glm::vec3 const& v3_min, glm::vec3 const& v3_max);
+  Box(glm::vec3 const& v3_min, glm::vec3 const& v3_max, std::string const& name, Color const& color);
 
   // Methods
   

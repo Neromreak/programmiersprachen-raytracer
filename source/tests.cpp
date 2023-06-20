@@ -6,6 +6,7 @@
 #include "shape.hpp"
 #include "sphere.hpp"
 #include "box.hpp"
+#include "color.hpp"
 
 int main(int argc, char *argv[])
 {
@@ -96,4 +97,21 @@ TEST_CASE("Spheres and Boxes", "[Task 5.2]")
     // Sources for tests:
     // https://www.matheretter.de/rechner/kugel
   }
+}
+
+TEST_CASE("Name and Color", "[Task 5.3]")
+{
+  Sphere sphere1{};
+
+  REQUIRE(sphere1.get_name_test() == "Shape");
+  REQUIRE(sphere1.get_color_test().r == 0.0f);
+  REQUIRE(sphere1.get_center_test() == glm::vec3{0.0f, 0.0f, 0.0f});
+  REQUIRE(sphere1.get_radius_test() == 1.0f);
+
+  Box box1{ {2.0f, 3.0f, 4.0f}, {5.0f, 6.0f, 7.0f}, "boxy box", {8.0f, 9.0f, 10.0f} };
+
+  REQUIRE(box1.get_name_test() == "boxy box");
+  REQUIRE(box1.get_color_test().r == 8.0f);
+  REQUIRE(box1.get_min_test() == glm::vec3{ 2.0f, 3.0f, 4.0f });
+  REQUIRE(box1.get_max_test() == glm::vec3{5.0f, 6.0f, 7.0f});
 }
