@@ -39,3 +39,10 @@ float Box::volume() const
   float z_lenght = std::abs(v3_min_.z - v3_max_.z);
   return x_lenght * y_lenght * z_lenght;
 }
+
+std::ostream& Box::print(std::ostream& os) const
+{
+  Shape::print(os);
+  os << ", Min: " << v3_min_.x << ", " << v3_min_.y << ", " << v3_min_.z << ", Max: " << v3_max_.x << ", " << v3_max_.y << ", " << v3_max_.z;
+  return os;
+}

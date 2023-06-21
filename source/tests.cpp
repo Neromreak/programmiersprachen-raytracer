@@ -116,7 +116,7 @@ TEST_CASE("Name and Color", "[Task 5.3]")
   REQUIRE(box1.get_max_test() == glm::vec3{5.0f, 6.0f, 7.0f});
 }
 
-TEST_CASE("Output of Name of Shape", "[Task 5.4]")
+TEST_CASE("Output of Names of Shapes", "[Task 5.5]")
 {
   Sphere sphere1{};
   std::cout << "sphere1: " << sphere1 << "\n";

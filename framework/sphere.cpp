@@ -38,6 +38,12 @@ float Sphere::volume() const
   return std::powf(radius_, 3) * std::numbers::pi * 4.0f / 3.0f;
 }
 
+std::ostream& Sphere::print(std::ostream& os) const
+{
+  Shape::print(os);
+  os << ", Center: " << center_.x << ", " << center_.y << ", " << center_.z << ", Radius: " << radius_;
+  return os;
+}
 
 // Sources:
 // https://studyflix.de/mathematik/volumen-kugel-2606?timestamp=0

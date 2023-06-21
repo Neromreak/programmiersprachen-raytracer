@@ -17,6 +17,7 @@ public:
   // Methods:
   float area() const override;
   float volume() const override;
+  std::ostream& print(std::ostream&) const override;
   
   // Getter for Tests:
   glm::vec3 const& get_center_test() const { return center_; };

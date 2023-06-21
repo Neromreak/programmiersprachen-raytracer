@@ -23,7 +23,7 @@ public:
   std::string const& get_name_test() const;
   Color const& get_color_test() const;
   
-protected:
+private:
   // Member Variables
   std::string name_{ "Shape" };
   Color color_{};
