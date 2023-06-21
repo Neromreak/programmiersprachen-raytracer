@@ -115,3 +115,12 @@ TEST_CASE("Name and Color", "[Task 5.3]")
   REQUIRE(box1.get_min_test() == glm::vec3{ 2.0f, 3.0f, 4.0f });
   REQUIRE(box1.get_max_test() == glm::vec3{5.0f, 6.0f, 7.0f});
 }
+
+TEST_CASE("Output of Name of Shape", "[Task 5.4]")
+{
+  Sphere sphere1{};
+  std::cout << "sphere1: " << sphere1 << "\n";
+
+  Box box1{ {"hotdog"}, {0.01f, 0.02f, 0.03f} };
+  std::cout << "sphere2: " << box1 << "\n";
+}
