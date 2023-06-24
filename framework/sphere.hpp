@@ -16,11 +16,13 @@ public:
   Sphere(std::string const& name, Color const& color);
   Sphere(glm::vec3 const& center, float radius, std::string const& name, Color const& color);
 
+  ~Sphere() override;
+
   // virtual Methods:
   float area() const override;
   float volume() const override;
   std::ostream& print(std::ostream& os) const override;
-
+  
   // own Methods
   HitPoint intersect(Ray const& ray) const;
 

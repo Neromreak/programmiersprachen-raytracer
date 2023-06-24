@@ -12,6 +12,8 @@ public:
   Shape(std::string name);
   Shape(std::string name, Color color);
 
+  virtual ~Shape();
+
   // Pure virtual methods
   virtual float area() const = 0;
   virtual float volume() const = 0;

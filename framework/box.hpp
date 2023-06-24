@@ -13,6 +13,8 @@ public:
   Box(glm::vec3 const& v3_min, glm::vec3 const& v3_max);
   Box(glm::vec3 const& v3_min, glm::vec3 const& v3_max, std::string const& name, Color const& color);
 
+  ~Box() override;
+
   // Methods
   float area() const override;
   float volume() const override;

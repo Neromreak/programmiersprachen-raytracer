@@ -205,7 +205,7 @@ TEST_CASE("Static_And_Dynamic_Types", "[Task 5.7]")
   Color red{ 1.0f, 0.0f, 0.0f};
   glm::vec3 position{ 0.0f, 0.0f, 0.0f };
   std::shared_ptr<Sphere> s1 = std::make_shared <Sphere>(position, 1.2f, "sphere0", red);
-  std::shared_ptr<Shape> s2 = std::make_shared <Sphere>(position, 1.2f, "sphere1", red);
+  std::shared_ptr<Shape>  s2 = std::make_shared <Sphere>(position, 1.2f, "sphere1", red);
 
   s1->print(std::cout);
   std::cout << "\n";
@@ -235,3 +235,42 @@ TEST_CASE("Static_And_Dynamic_Types", "[Task 5.7]")
 // S2 statisch:   Shape
 // S2 dynamisch:  Sphere
 //
+
+TEST_CASE("Virtual_Destructor", "[Task 5.8]")
+{
+  std::cout << "\nTask 5.8:\n";
+
+  Color red{ 1.0f, 0.0f, 0.0f };
+  glm::vec3 position{ 0.0f, 0.0f, 0.0f };
+  Sphere* s1 = new Sphere{ position , 1.2f , "sphere0", red };
+  Shape*  s2 = new Sphere{ position , 1.2f , "sphere1", red };
+
+  s1->print(std::cout);
+  std::cout << "\n";
+  s2->print(std::cout);
+  std::cout << "\n";
+
+  delete s1;
+  delete s2;
+
+  // with virtual destructor:
+  // Shape constructor    // Erst Konstruktor der Basisklasse
+  // Sphere constructor   // Dann Konstruktor der abgleiteten Klasse
+  // Shape constructor
+  // Sphere constructor
+  // 
+  // Sphere destructor    // Erst Destruktor der abgeleiteten Klasse
+  // Shape destructor     // Dann Destruktor der Basisklasse
+  // Sphere destructor
+  // Shape destructor
+
+  // with non virtual destructor:
+  // Shape constructor
+  // Sphere constructor
+  // Shape constructor
+  // Sphere constructor
+  // 
+  // Sphere destructor    // s1 wird normal deleted           (statisch Sphere | dynamisch Sphere)
+  // Shape destructor
+  // Shape destructor     // s2 wird nur Basisklasse deleted  (statisch Shape | dynamisch Sphere)
+ }

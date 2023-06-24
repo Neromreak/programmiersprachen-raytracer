@@ -2,14 +2,17 @@
 
 // Constructors
 Shape::Shape()
-{}
+{ std::cout << "Shape constructor\n"; }
 Shape::Shape(std::string name) :
   name_{ name }
-{}
+{ std::cout << "Shape constructor\n"; }
 Shape::Shape(std::string name, Color color) :
   name_{ name },
   color_{color}
-{}
+{ std::cout << "Shape constructor\n"; }
+
+Shape::~Shape()
+{ std::cout << "Shape destructor\n"; }
 
 
 // Getter

@@ -8,31 +8,36 @@
 #include "ray.hpp"
 #include "hit_point.hpp"
 
-// Constructors
+// Constructors:
 Sphere::Sphere():
   Shape::Shape{}
-{}
+{ std::cout << "Sphere constructor\n"; }
 Sphere::Sphere(glm::vec3 const& center):
   Shape::Shape{},
   center_{center}
-{}
+{ std::cout << "Sphere constructor\n"; }
+
 Sphere::Sphere(glm::vec3 const& center, float radius):
   Shape::Shape{},
   center_{center},
   radius_{std::abs(radius)}
-{}
+{ std::cout << "Sphere constructor\n"; }
+
 Sphere::Sphere(std::string const& name, Color const& color):
   Shape::Shape{name, color}
-{}
+{ std::cout << "Sphere constructor\n"; }
+
 Sphere::Sphere(glm::vec3 const& center, float radius, std::string const& name, Color const& color):
   Shape::Shape{name, color},
   center_{center},
   radius_{radius}
-{}
+{ std::cout << "Sphere constructor\n"; }
+
+Sphere::~Sphere()
+{ std::cout << "Sphere destructor\n"; }
 
 
 // virtual Methods:
-
 float Sphere::area() const
 {
   return std::powf(radius_, 2) * std::numbers::pi * 4;
@@ -51,7 +56,7 @@ std::ostream& Sphere::print(std::ostream& os) const
 }
 
 
-// own Methods
+// own Methods:
 HitPoint Sphere::intersect(Ray const& ray) const
 {
   // returns hit_point with false if no hit; with true and other parameters if hit
