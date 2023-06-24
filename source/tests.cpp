@@ -197,3 +197,41 @@ TEST_CASE("Intersect_ray_sphere", "[Task 5.6]")
     REQUIRE(hit_point5.hit_ == true);
   }
 }
+
+TEST_CASE("Static_And_Dynamic_Types", "[Task 5.7]")
+{
+  std::cout << "\nTask 5.7:\n";
+
+  Color red{ 1.0f, 0.0f, 0.0f};
+  glm::vec3 position{ 0.0f, 0.0f, 0.0f };
+  std::shared_ptr<Sphere> s1 = std::make_shared <Sphere>(position, 1.2f, "sphere0", red);
+  std::shared_ptr<Shape> s2 = std::make_shared <Sphere>(position, 1.2f, "sphere1", red);
+
+  s1->print(std::cout);
+  std::cout << "\n";
+  s2->print(std::cout);
+  std::cout << "\n";
+}
+// (Task 5.7) static/dynamic types
+// Statischer Typ einer Variable:
+// -bezeichnet den Typen der Variable welcher zur Deklarierung der Variable festgelegt wurde.
+// Der statische Typ wird zur Übersetzungszeit gebunden und kann sich dann nicht mehr ändern.
+// 
+// Dynamischer Typ einer Variable:
+// -bezeichnet den Typen der Variable welcher gerade von dieser referenziert wird.
+// Der dynamische Typ wird erst zur Laufzeit des Programms festgelegt und kann demnach auch
+// noch während der Laufzeit geändert werden.
+// 
+// Wann wird welcher Typ überprüft:
+// Greift man auf eine Methode einer Variable zu, so wird schon bei Übersetzung geprüft, ob
+// der statische Typ der Variable diese Methode überhaupt definiert und entsprechend
+// potentiell eine Fehlermeldung ausgegeben wenn diese Methode nicht definiert ist. Auf die
+// eigentliche Definition der Methode wird jedoch erst bei Laufzeit zugegriffen. Somit ist
+// dabei der dynamische Typ der Variable relevant, da über diesen die Implementierung der
+// Methode gewählt wird.
+// 
+// S1 statisch:   Sphere
+// S1 dynamisch:  Sphere
+// S2 statisch:   Shape
+// S2 dynamisch:  Sphere
+//
