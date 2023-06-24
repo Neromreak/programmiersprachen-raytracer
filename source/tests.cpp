@@ -143,9 +143,6 @@ TEST_CASE("Intersect_ray_sphere", "[Task 5.6]")
   {
     // Ray
     glm::vec3 ray_origin{ 0.0f , 0.0f , 0.0f };
-    // ray direction has to be normalized !
-    // you can use :
-    // v = glm :: normalize ( some_vector )
     glm::vec3 ray_direction{ 0.0f , 0.0f , 1.0f };
     // Sphere
     glm::vec3 sphere_center{ 0.0f ,0.0f , 5.0f };
