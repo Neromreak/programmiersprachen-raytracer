@@ -129,6 +129,13 @@ TEST_CASE("Output of Names of Shapes", "[Task 5.5]")
   Box box1{ {"hotdog"}, {0.01f, 0.02f, 0.03f} };
   std::cout << "box1: " << box1 << "\n";
 }
+// Schlüsselwort override:
+// -überschreibt die Methode der Basisklasse nicht. Dass passiert automatisch, wenn
+// Methode in Basisklasse als virtual geflaggt ist und die Signaturen übereinstimmen.
+// -überprüft stattdessen nur ob eine entsprechende virtual Methode zum 
+// überschreiben existiert und gibt einen Fehler aus, sollte dem nicht so sein. 
+// -Fängt somit Fehler ab, die schwer zu finden wären
+//
 
 TEST_CASE("Intersect_ray_sphere", "[Task 5.6]")
 {
@@ -274,3 +281,16 @@ TEST_CASE("Virtual_Destructor", "[Task 5.8]")
   // Shape destructor
   // Shape destructor     // s2 wird nur Basisklasse deleted  (statisch Shape | dynamisch Sphere)
  }
+
+// (Task 5.9) Klassenhierachchie u.ä.
+// Klassenhierarchie:
+// -beschreibt die Konstellation und Beziehungen zwischen mehreren Klassen wie 
+// Basisklasse und devon abgeleitete Klassen
+// 
+// Objekthierarchie:
+// -beschreibt die Konstellation und Beziehung der tatsächlich existierenden Instanzen
+// der Klassen
+// 
+// Klassendiagramm/Objektdiagramm:
+// Darstellung der Hierarchien als Diagramm
+//
