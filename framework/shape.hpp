@@ -19,9 +19,9 @@ public:
   // Virtual Methods
   virtual std::ostream& print(std::ostream& os) const;
 
-  // Getter for Tests
-  std::string const& get_name_test() const;
-  Color const& get_color_test() const;
+  // Getter
+  std::string const& get_name() const;
+  Color const& get_color() const;
   
 private:
   // Member Variables

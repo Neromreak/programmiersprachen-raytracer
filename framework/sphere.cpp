@@ -3,15 +3,21 @@
 #include <numbers>
 #include <cmath>
 #include "glm/vec3.hpp"
+#include "glm/gtx/intersect.hpp"
 #include <string>
+#include "ray.hpp"
+#include "hit_point.hpp"
 
 // Constructors
-Sphere::Sphere()
+Sphere::Sphere():
+  Shape::Shape{}
 {}
 Sphere::Sphere(glm::vec3 const& center):
+  Shape::Shape{},
   center_{center}
 {}
 Sphere::Sphere(glm::vec3 const& center, float radius):
+  Shape::Shape{},
   center_{center},
   radius_{std::abs(radius)}
 {}
@@ -25,8 +31,7 @@ Sphere::Sphere(glm::vec3 const& center, float radius, std::string const& name, C
 {}
 
 
-
-// Methods:
+// virtual Methods:
 
 float Sphere::area() const
 {
@@ -43,6 +48,25 @@ std::ostream& Sphere::print(std::ostream& os) const
   Shape::print(os);
   os << ", Center: " << center_.x << ", " << center_.y << ", " << center_.z << ", Radius: " << radius_;
   return os;
+}
+
+
+// own Methods
+HitPoint Sphere::intersect(Ray const& ray) const
+{
+  // returns hit_point with false if no hit; with true and other parameters if hit
+  float distance = 0.0f;
+  bool hit = glm::intersectRaySphere(ray.origin_, ray.direction(), center_,
+    radius_ * radius_, distance);
+
+  if (hit)
+  {
+    return HitPoint{ true, distance, ray.origin_ + distance * ray.direction(), ray.direction(), get_name(), get_color()};
+  }
+  else
+  {
+    return HitPoint{false};
+  }
 }
 
 // Sources:

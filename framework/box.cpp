@@ -7,12 +7,14 @@
 #include "shape.hpp"
 
 // Constructors
-Box::Box()
+Box::Box():
+  Shape::Shape{}
 {}
 Box::Box(std::string const& name, Color const& color):
   Shape::Shape{name , color}
 {}
 Box::Box(glm::vec3 const& v3_min, glm::vec3 const& v3_max):
+  Shape::Shape{},
   v3_min_{v3_min},
   v3_max_{v3_max}
 {}

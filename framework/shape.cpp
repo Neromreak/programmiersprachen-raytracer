@@ -12,12 +12,13 @@ Shape::Shape(std::string name, Color color) :
 {}
 
 
-// Getter for Tests
-std::string const& Shape::get_name_test() const
+// Getter
+std::string const& Shape::get_name() const
 {
   return name_;
 }
-Color const& Shape::get_color_test() const
+
+Color const& Shape::get_color() const
 {
   return color_;
 }
